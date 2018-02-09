@@ -37,15 +37,13 @@ var quotes = [
 ];
 // console.log(quotes);
 
-// global, empty variable to hold random quote
-var randomQuote;
-
-function getRandomQuote (array) {
-    randomQuote = array[Math.floor(Math.random() * array.length)];
+// function that takes an array, and selects a random object from that array.
+function getRandomQuote () {
+    randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
     return randomQuote;
 };
 
-console.log(getRandomQuote(quotes));
+console.log(getRandomQuote());
 
 
  
