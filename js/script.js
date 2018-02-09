@@ -1,7 +1,8 @@
 // event listener to respond to "Show another quote" button clicks
 // when user clicks anywhere on the button, the "printQuote" function is called
-document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+// document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
+//array of objects containing quote, source, citation, and year
 var quotes = [
     {
         quote: "I intend to smoke a good cigar to the glory of God before I go to bed tonight.",
@@ -33,4 +34,18 @@ var quotes = [
         citation: "The Dusk in Us",
         year: 2017
     },
-]
+];
+// console.log(quotes);
+
+// global, empty variable to hold random quote
+var randomQuote;
+
+function getRandomQuote (array) {
+    randomQuote = array[Math.floor(Math.random() * array.length)];
+    return randomQuote;
+};
+
+console.log(getRandomQuote(quotes));
+
+
+ 
