@@ -1,20 +1,21 @@
 // event listener to respond to "Show another quote" button clicks
 // when user clicks anywhere on the button, the "printQuote" function is called
-// document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+
+document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
 //array of objects containing quote, source, citation, and year
 var quotes = [
     {
         quote: "I intend to smoke a good cigar to the glory of God before I go to bed tonight.",
         source: "Charles Spurgeon",
-        citation: "Metropolitan Tabernacle",
+        citation: '',
         year: 1874
     },
     {
         quote: "Always, always make the best beer possible.",
         source: "Brian Dunn",
         citation: "Great Divide Brewing",
-        year: 2017
+        year: ''
     },
     {
         quote: "It’s times like these you learn to live again.",
@@ -29,7 +30,7 @@ var quotes = [
         year: 2018
     },
     {
-        quote: "You outshined the best there was, Rewrote who I could be, When I held you for the first time I knew I had to survive",
+        quote: "When I held you for the first time I knew I had to survive",
         source: "Converge",
         citation: "The Dusk in Us",
         year: 2017
@@ -39,11 +40,22 @@ var quotes = [
 
 // function that takes an array, and selects a random object from that array.
 function getRandomQuote () {
-    randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-    return randomQuote;
+    //variable that creates a random number using the quotes arra
+    randomQuote = Math.floor(Math.random() * quotes.length);
+    //returns the random quote selected
+    return quotes[randomQuote];
 };
-
 console.log(getRandomQuote());
 
-
- 
+function printQuote () {
+    //calls getRandomQuote function and assigns selected quote to new variable
+    var printText = getRandomQuote();
+    // varialbe that prints 
+    var newQuotePrint = '<p class="quote">' + printText.quote + '</p>' + '<p class="source">' + printText.source + '</p>' + '<span class="citation">' + printText.citation + '</span>' + '<span class="year">' + printText.year + '</span>';
+    if (printText.citation === '') {
+        newQuotePrint = '<p class="quote">' + printText.quote + '</p>' + '<p class="source">' + printText.source + '</p>' + '<span class="year">' + printText.year + '</span>';
+    } if (printText.year === '') {
+        newQuotePrint = '<p class="quote">' + printText.quote + '</p>' + '<p class="source">' + printText.source + '</p>' + '<span class="citation">' + printText.citation + '</span>';
+    }
+    document.getElementById('quote-box').innerHTML = newQuotePrint;
+};
