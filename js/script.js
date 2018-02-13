@@ -41,16 +41,16 @@ var quotes = [
 // function that takes an array, and selects a random object from that array.
 function getRandomQuote () {
     //variable that creates a random number using the quotes arra
-    randomQuote = Math.floor(Math.random() * quotes.length);
+    randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
     //returns the random quote selected
-    return quotes[randomQuote];
+    return randomQuote;
 };
 console.log(getRandomQuote());
 
 function printQuote () {
     //calls getRandomQuote function and assigns selected quote to new variable
     var printText = getRandomQuote();
-    // varialbe that prints 
+    // varialbe that prints object values in HTML based on class.
     var newQuotePrint = '<p class="quote">' + printText.quote + '</p>' + '<p class="source">' + printText.source  + '<span class="citation">' + printText.citation + '</span>' + '<span class="year">' + printText.year + '</span>'+'</p>';
     if (printText.citation === '') {
         newQuotePrint = '<p class="quote">' + printText.quote + '</p>' + '<p class="source">' + printText.source + '<span class="year">' + printText.year + '</span>'+'</p>';
