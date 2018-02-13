@@ -51,11 +51,11 @@ function printQuote () {
     //calls getRandomQuote function and assigns selected quote to new variable
     var printText = getRandomQuote();
     // varialbe that prints 
-    var newQuotePrint = '<p class="quote">' + printText.quote + '</p>' + '<p class="source">' + printText.source + '</p>' + '<span class="citation">' + printText.citation + '</span>' + '<span class="year">' + printText.year + '</span>';
+    var newQuotePrint = '<p class="quote">' + printText.quote + '</p>' + '<p class="source">' + printText.source  + '<span class="citation">' + printText.citation + '</span>' + '<span class="year">' + printText.year + '</span>'+'</p>';
     if (printText.citation === '') {
-        newQuotePrint = '<p class="quote">' + printText.quote + '</p>' + '<p class="source">' + printText.source + '</p>' + '<span class="year">' + printText.year + '</span>';
+        newQuotePrint = '<p class="quote">' + printText.quote + '</p>' + '<p class="source">' + printText.source + '<span class="year">' + printText.year + '</span>'+'</p>';
     } if (printText.year === '') {
-        newQuotePrint = '<p class="quote">' + printText.quote + '</p>' + '<p class="source">' + printText.source + '</p>' + '<span class="citation">' + printText.citation + '</span>';
+        newQuotePrint = '<p class="quote">' + printText.quote + '</p>' + '<p class="source">' + printText.source + '<span class="citation">' + printText.citation + '</span>'+'</p>';
     }
     document.getElementById('quote-box').innerHTML = newQuotePrint;
 };
