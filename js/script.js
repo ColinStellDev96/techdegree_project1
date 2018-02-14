@@ -47,7 +47,7 @@ var repeatColors = [];
 
 // function that takes an array, and selects a random object from that array.
 function getRandomQuote () {
-    randomQuote = quotes[Math.floor(Math.random() * quotes.length)]; //variable that creates a random number using the quotes arra
+    randomQuote = Math.floor(Math.random() * quotes.length); //variable that creates a random number using the quotes arra
     quoteSplice = quotes.splice(randomQuote, 1)[0]; //splice randomQuote object, 1 is the index value the splice stops at, [0] indicates access of the first item in the array
     repeatQuotes.push(quoteSplice); //pushing each random quote into the global repeatQuotes array which starts as an empty array, but populates as the getRandomQuote function is called.
     if (quotes.length === 0) {
