@@ -7,30 +7,36 @@ var quotes = [
     {
         quote: "I intend to smoke a good cigar to the glory of God before I go to bed tonight.",
         source: "Charles Spurgeon",
-        year: 1874
+        year: 1874,
+        tag: "Old Theologians"
     },
     {
         quote: "Always, always make the best beer possible.",
         source: "Brian Dunn",
         citation: "Great Divide Brewing",
+        tag: "Beer"
     },
     {
         quote: "It’s times like these you learn to live again.",
         source: "Foo Fighers",
         citation: "One by One",
-        year: 2002
+        year: 2002,
+        tag: "Music"
+        
     },
     {
         quote: "Sometimes the greatest way to say something is to say nothing at all",
         source: "Justin Timberlake",
         citation: "Man of the Woods",
-        year: 2018
+        year: 2018,
+        tag: "Music"
     },
     {
         quote: "When I held you for the first time I knew I had to survive",
         source: "Converge",
         citation: "The Dusk in Us",
-        year: 2017
+        year: 2017,
+        tag: "Music"
     },
 ];
 
@@ -50,7 +56,6 @@ function getRandomQuote () {
     }
     return quoteSplice;
 };
-// console.log(getRandomQuote());
 
 function getRandomColor () {
     randomColor = colors[Math.floor(Math.random() * colors.length)];
@@ -68,11 +73,13 @@ function printQuote () {
     var printText = getRandomQuote();
     var newColor = getRandomColor();
     // varialbe that prints object values in HTML based on class.
-    var newQuotePrint = '<p class="quote">' + printText.quote + '</p>' + '<p class="source">' + printText.source  + '<span class="citation">' + printText.citation + '</span>' + '<span class="year">' + printText.year + '</span>'+'</p>';
+    var newQuotePrint = '<p class="quote">' + printText.quote + '</p>' + '<p class="source">' + printText.source  + '<span class="citation">' + printText.citation + '</span>' + '<span class="year">' + printText.year + '</span>'+ '<span class="tag">' + printText.tag + '</p>';
+    //if citation is undefined, print in HMTL omits that value without breaking CSS
     if (printText.citation === undefined) {
-        newQuotePrint = '<p class="quote">' + printText.quote + '</p>' + '<p class="source">' + printText.source + '<span class="year">' + printText.year + '</span>'+'</p>';
+        newQuotePrint = '<p class="quote">' + printText.quote + '</p>' + '<p class="source">' + printText.source + '<span class="year">' + printText.year + '</span>'+ '<span class="tag">' + printText.tag + '</p>';
+         //if year is undefined, print in HMTL omits that value without breaking CSS
     } if (printText.year === undefined) {
-        newQuotePrint = '<p class="quote">' + printText.quote + '</p>' + '<p class="source">' + printText.source + '<span class="citation">' + printText.citation + '</span>'+'</p>';
+        newQuotePrint = '<p class="quote">' + printText.quote + '</p>' + '<p class="source">' + printText.source + '<span class="citation">' + printText.citation + '</span>'+ '<span class="tag">' + printText.tag + '</p>';
     }
     document.getElementById('quote-box').innerHTML = newQuotePrint;
     document.body.style.backgroundColor = newColor;
