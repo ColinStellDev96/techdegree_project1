@@ -58,7 +58,7 @@ function getRandomQuote () {
 };
 
 function getRandomColor () {
-    randomColor = colors[Math.floor(Math.random() * colors.length)];
+    randomColor = Math.floor(Math.random() * colors.length);
     colorSplice = colors.splice(randomColor, 1)[0];
     repeatColors.push(colorSplice);
     if (colors.length === 0) {
