@@ -2,7 +2,7 @@
 // when user clicks anywhere on the button, the "printQuote" function is called
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
-//array of objects containing quote, source, citation, and year
+//array of objects containing quote, source, citation, year, and tag
 var quotes = [
     {
         quote: "I intend to smoke a good cigar to the glory of God before I go to bed tonight.",
@@ -47,7 +47,7 @@ var repeatColors = [];
 
 // function that takes an array, and selects a random object from that array.
 function getRandomQuote () {
-    randomQuote = Math.floor(Math.random() * quotes.length); //variable that creates a random number using the quotes arra
+    randomQuote = Math.floor(Math.random() * quotes.length); //variable that creates a random number using the quotes array
     quoteSplice = quotes.splice(randomQuote, 1)[0]; //splice randomQuote object, 1 is the index value the splice stops at, [0] indicates access of the first item in the array
     repeatQuotes.push(quoteSplice); //pushing each random quote into the global repeatQuotes array which starts as an empty array, but populates as the getRandomQuote function is called.
     if (quotes.length === 0) {
@@ -74,10 +74,10 @@ function printQuote () {
     var newColor = getRandomColor();
     // varialbe that prints object values in HTML based on class.
     var newQuotePrint = '<p class="quote">' + printText.quote + '</p>' + '<p class="source">' + printText.source  + '<span class="citation">' + printText.citation + '</span>' + '<span class="year">' + printText.year + '</span>'+ '<span class="tag">' + printText.tag + '</p>';
-    //if citation is undefined, print in HMTL omits that value without breaking CSS
+    //if citation is undefined, print in HMTL doesn't include that value without breaking CSS
     if (printText.citation === undefined) {
         newQuotePrint = '<p class="quote">' + printText.quote + '</p>' + '<p class="source">' + printText.source + '<span class="year">' + printText.year + '</span>'+ '<span class="tag">' + printText.tag + '</p>';
-         //if year is undefined, print in HMTL omits that value without breaking CSS
+         //if year is undefined, print in HMTL doesnt include that value that value without breaking CSS
     } if (printText.year === undefined) {
         newQuotePrint = '<p class="quote">' + printText.quote + '</p>' + '<p class="source">' + printText.source + '<span class="citation">' + printText.citation + '</span>'+ '<span class="tag">' + printText.tag + '</p>';
     }
